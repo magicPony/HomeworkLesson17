@@ -8,19 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
+import com.example.taras.homeworklesson17.api.FragmentHandler;
 import com.example.taras.homeworklesson17.api.models.User;
 
 public class ShowUserFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private User user;
 
-    public ShowUserFragment(MainActivity mainActivity, int userId) {
-        this.mainActivity = mainActivity;
+    public ShowUserFragment(int userId) {
         user = Data.findUserById(userId);
     }
 
@@ -72,21 +71,21 @@ public class ShowUserFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.SHOW_USER_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.SHOW_USER_FRAGMENT)) {
             return;
         }
 
         switch (v.getId()) {
             case R.id.btn_todos_FSU :
-                mainActivity.openTodoList(user);
+                FragmentHandler.openTodoList(user);
                 break;
 
             case R.id.btn_albums_FSU :
-                mainActivity.openAlbumList(user);
+                FragmentHandler.openAlbumList(user);
                 break;
 
             case R.id.btn_posts_FSU :
-                mainActivity.openPostList(user);
+                FragmentHandler.openPostList(user);
                 break;
         }
     }

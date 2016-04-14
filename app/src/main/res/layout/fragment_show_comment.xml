@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#ffffff"
     android:layout_width="match_parent"
@@ -7,7 +8,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:text="Comment"
+        android:text="@string/comment"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Post id : "
+            android:text="@string/post_id_"
             android:background="@drawable/item_drawable"
             android:padding="5dp"
             android:layout_margin="5dp"
@@ -30,7 +31,7 @@
 
         <TextView
             android:id="@+id/tv_post_id_FSC"
-            android:text="post id"
+            tools:text="post id"
             android:padding="5dp"
             android:layout_margin="5dp"
             android:textSize="20sp"
@@ -45,7 +46,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Id : "
+            android:text="@string/id_"
             android:background="@drawable/item_drawable"
             android:padding="5dp"
             android:layout_margin="5dp"
@@ -55,7 +56,7 @@
 
         <TextView
             android:id="@+id/tv_id_FSC"
-            android:text="id"
+            tools:text="id"
             android:padding="5dp"
             android:layout_margin="5dp"
             android:textSize="20sp"
@@ -70,7 +71,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Name : "
+            android:text="@string/name_"
             android:background="@drawable/item_drawable"
             android:padding="5dp"
             android:layout_margin="5dp"
@@ -80,7 +81,7 @@
 
         <TextView
             android:id="@+id/tv_name_FSC"
-            android:text="name"
+            tools:text="name"
             android:padding="5dp"
             android:layout_margin="5dp"
             android:textSize="20sp"
@@ -95,7 +96,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Email : "
+            android:text="@string/email_"
             android:background="@drawable/item_drawable"
             android:padding="5dp"
             android:layout_margin="5dp"
@@ -105,7 +106,7 @@
 
         <TextView
             android:id="@+id/tv_email_FSC"
-            android:text="email"
+            tools:text="email"
             android:padding="5dp"
             android:layout_margin="5dp"
             android:textSize="20sp"
@@ -114,12 +115,12 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_body_FSC"
-            android:text="Body"
+            tools:text="Body"
             android:layout_margin="5dp"
             android:padding="5dp"
             android:background="#22000000"

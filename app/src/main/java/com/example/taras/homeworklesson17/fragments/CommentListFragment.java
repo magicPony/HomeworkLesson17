@@ -13,6 +13,7 @@ import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
 import com.example.taras.homeworklesson17.api.models.Comment;
 import com.example.taras.homeworklesson17.api.models.Post;
 
@@ -21,12 +22,10 @@ import com.example.taras.homeworklesson17.api.models.Post;
  */
 public class CommentListFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private Post post;
     private LinearLayout linearLayout;
 
-    public CommentListFragment(MainActivity mainActivity, Post post) {
-        this.mainActivity = mainActivity;
+    public CommentListFragment(Post post) {
         this.post = post;
     }
 
@@ -42,7 +41,7 @@ public class CommentListFragment extends Fragment implements View.OnClickListene
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Comments");
+        tvTitle.setText(MainActivity.getInstance().getString(R.string.comments));
 
         for (Comment comment : Data.commentArrayList)
             if (comment.getPostId() == post.getId()) {
@@ -53,7 +52,7 @@ public class CommentListFragment extends Fragment implements View.OnClickListene
     }
 
     private void addComment(Comment comment) {
-        LinearLayout llComment = (LinearLayout) View.inflate(mainActivity, R.layout.card_layout, null);
+        LinearLayout llComment = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.card_layout, null);
         TextView tvEmail = (TextView) llComment.findViewById(R.id.tv_field_CL);
 
         llComment.setTag(comment.getId());
@@ -65,11 +64,11 @@ public class CommentListFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.COMMENT_LIST_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.COMMENT_LIST_FRAGMENT)) {
             return;
         }
 
-        ShowCommentFragment showCommentFragment = new ShowCommentFragment(mainActivity, (int) v.getTag());
-        mainActivity.commitFragment(showCommentFragment, ApiConst.SHOW_COMMENT_FRAGMENT);
+        ShowCommentFragment showCommentFragment = new ShowCommentFragment((int) v.getTag());
+        EventHandler.commitFragment(showCommentFragment, ApiConst.SHOW_COMMENT_FRAGMENT);
     }
 }

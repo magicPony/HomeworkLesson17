@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
+import com.example.taras.homeworklesson17.api.FragmentHandler;
 import com.example.taras.homeworklesson17.api.models.Post;
 
 /**
@@ -20,10 +21,8 @@ import com.example.taras.homeworklesson17.api.models.Post;
 public class ShowPostFragment extends Fragment implements View.OnClickListener {
 
     private Post post;
-    private MainActivity mainActivity;
 
-    public ShowPostFragment(MainActivity mainActivity, int id) {
-        this.mainActivity = mainActivity;
+    public ShowPostFragment(int id) {
         this.post = Data.findPostById(id);
     }
 
@@ -53,10 +52,10 @@ public class ShowPostFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.SHOW_POST_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.SHOW_POST_FRAGMENT)) {
             return;
         }
 
-        mainActivity.openCommentListFragment(post);
+        FragmentHandler.openCommentList(post);
     }
 }

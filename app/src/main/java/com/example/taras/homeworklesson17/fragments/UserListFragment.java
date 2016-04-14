@@ -13,16 +13,12 @@ import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
 import com.example.taras.homeworklesson17.api.models.User;
 
 public final class UserListFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private LinearLayout linearLayout;
-
-    public UserListFragment(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
-    }
 
     @Nullable
     @Override
@@ -36,7 +32,7 @@ public final class UserListFragment extends Fragment implements View.OnClickList
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Users");
+        tvTitle.setText(MainActivity.getInstance().getString(R.string.users));
 
         for (User user : Data.userArrayList) {
             addUser(user);
@@ -46,7 +42,7 @@ public final class UserListFragment extends Fragment implements View.OnClickList
     }
 
     private void addUser(User user) {
-        LinearLayout llUserCard = (LinearLayout) View.inflate(mainActivity, R.layout.card_layout, null);
+        LinearLayout llUserCard = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.card_layout, null);
         TextView tvUsername;
         tvUsername = (TextView) llUserCard.findViewById(R.id.tv_field_CL);
 
@@ -59,11 +55,11 @@ public final class UserListFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.USER_LIST_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.USER_LIST_FRAGMENT)) {
             return;
         }
 
-        ShowUserFragment showUserFragment = new ShowUserFragment(mainActivity, (int) v.getTag());
-        mainActivity.commitFragment(showUserFragment, ApiConst.SHOW_USER_FRAGMENT);
+        ShowUserFragment showUserFragment = new ShowUserFragment((int) v.getTag());
+        EventHandler.commitFragment(showUserFragment, ApiConst.SHOW_USER_FRAGMENT);
     }
 }

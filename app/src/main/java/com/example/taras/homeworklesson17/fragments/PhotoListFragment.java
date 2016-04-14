@@ -19,12 +19,10 @@ import com.example.taras.homeworklesson17.api.models.Photo;
  */
 public class PhotoListFragment extends Fragment {
 
-    private MainActivity mainActivity;
     private int albumId;
     private LinearLayout linearLayout;
 
-    public PhotoListFragment(MainActivity mainActivity, int albumId) {
-        this.mainActivity = mainActivity;
+    public PhotoListFragment(int albumId) {
         this.albumId = albumId;
     }
 
@@ -40,7 +38,7 @@ public class PhotoListFragment extends Fragment {
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Photos");
+        tvTitle.setText(MainActivity.getInstance().getString(R.string.photos));
 
         for (Photo photo : Data.photoArrayList)
             if (photo.getAlbumId() == albumId) {
@@ -51,7 +49,7 @@ public class PhotoListFragment extends Fragment {
     }
 
     private void addPhoto(Photo photo) {
-        LinearLayout llPhoto = (LinearLayout) View.inflate(mainActivity, R.layout.photo_layout, null);
+        LinearLayout llPhoto = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.photo_layout, null);
         TextView tvTitle, tvUrl;
 
         tvTitle = (TextView) llPhoto.findViewById(R.id.tv_title_PL);

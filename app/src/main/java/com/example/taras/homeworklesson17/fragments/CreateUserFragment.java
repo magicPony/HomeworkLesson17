@@ -10,18 +10,14 @@ import android.widget.EditText;
 
 import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
+import com.example.taras.homeworklesson17.api.EventHandler;
 
 /**
  * Created by taras on 13.04.16.
  */
 public class CreateUserFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private View view;
-
-    public CreateUserFragment(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
-    }
 
     @Nullable
     @Override
@@ -88,8 +84,8 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
         }
 
         if (!isFieldsFilled) {
-            String message = "Fields should be filled";
-            mainActivity.showToast(message);
+            String message = MainActivity.getInstance().getString(R.string.fields_should_be_filled);
+            EventHandler.showToast(message);
             return;
         }
     }

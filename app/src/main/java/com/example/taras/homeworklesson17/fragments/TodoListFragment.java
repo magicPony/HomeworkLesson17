@@ -20,12 +20,10 @@ import com.example.taras.homeworklesson17.api.models.User;
  */
 public class TodoListFragment extends Fragment {
 
-    private MainActivity mainActivity;
     private User user;
     private LinearLayout linearLayout;
 
-    public TodoListFragment(MainActivity mainActivity, User user) {
-        this.mainActivity = mainActivity;
+    public TodoListFragment(User user) {
         this.user = user;
     }
 
@@ -52,7 +50,7 @@ public class TodoListFragment extends Fragment {
     }
 
     private void addTodo(Todo todo) {
-        LinearLayout llTodo = (LinearLayout) View.inflate(mainActivity, R.layout.todo_layout, null);
+        LinearLayout llTodo = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.todo_layout, null);
         TextView tvUserId, tvId, tvTitle, tvCompleted;
 
         tvUserId = (TextView) llTodo.findViewById(R.id.tv_user_id_TL);

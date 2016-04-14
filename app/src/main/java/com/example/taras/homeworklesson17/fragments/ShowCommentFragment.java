@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.Data;
 import com.example.taras.homeworklesson17.api.models.Comment;
@@ -18,11 +17,9 @@ import com.example.taras.homeworklesson17.api.models.Comment;
  */
 public class ShowCommentFragment extends Fragment {
 
-    private MainActivity mainActivity;
     private Comment comment;
 
-    public ShowCommentFragment(MainActivity mainActivity, int id) {
-        this.mainActivity = mainActivity;
+    public ShowCommentFragment(int id) {
         comment = Data.findCommentById(id);
     }
 

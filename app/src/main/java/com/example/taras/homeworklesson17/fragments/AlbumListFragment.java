@@ -13,6 +13,8 @@ import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
+import com.example.taras.homeworklesson17.api.FragmentHandler;
 import com.example.taras.homeworklesson17.api.models.Album;
 import com.example.taras.homeworklesson17.api.models.User;
 
@@ -21,12 +23,10 @@ import com.example.taras.homeworklesson17.api.models.User;
  */
 public class AlbumListFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private User user;
     private LinearLayout linearLayout;
 
-    public AlbumListFragment(MainActivity mainActivity, User user) {
-        this.mainActivity = mainActivity;
+    public AlbumListFragment(User user) {
         this.user = user;
     }
 
@@ -42,7 +42,7 @@ public class AlbumListFragment extends Fragment implements View.OnClickListener 
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Albums");
+        tvTitle.setText(MainActivity.getInstance().getString(R.string.albums));
 
         for (Album album : Data.albumArrayList)
             if (album.getUserId() == user.getId()) {
@@ -53,7 +53,7 @@ public class AlbumListFragment extends Fragment implements View.OnClickListener 
     }
 
     private void addAlbum(Album album) {
-        LinearLayout llAlbum = (LinearLayout) View.inflate(mainActivity, R.layout.card_layout, null);
+        LinearLayout llAlbum = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.card_layout, null);
         TextView tvTitle = (TextView) llAlbum.findViewById(R.id.tv_field_CL);
 
         llAlbum.setTag(album.getId());
@@ -65,10 +65,10 @@ public class AlbumListFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.ALBUM_LIST_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.ALBUM_LIST_FRAGMENT)) {
             return;
         }
 
-        mainActivity.openPhotoList((int) v.getTag());
+        FragmentHandler.openPhotoList((int) v.getTag());
     }
 }

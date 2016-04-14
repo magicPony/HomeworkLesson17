@@ -3,6 +3,7 @@ package com.example.taras.homeworklesson17.api;
 import android.util.Log;
 
 import com.example.taras.homeworklesson17.MainActivity;
+import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.interfaces.ConnectCallback;
 import com.example.taras.homeworklesson17.api.interfaces.ModelResponse;
 import com.loopj.android.http.AsyncHttpClient;
@@ -95,7 +96,7 @@ public final class Connect {
     }
 
     public void getRequest(String url,final ModelResponse modelResponse , final ConnectCallback callback) {
-        mMainActivity.showToast("Wait...");
+        EventHandler.showToast(mMainActivity.getString(R.string.wait));
         getRequestWithParam(url, null, modelResponse, callback);
     }
 

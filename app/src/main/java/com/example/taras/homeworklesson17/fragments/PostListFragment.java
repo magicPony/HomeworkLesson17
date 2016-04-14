@@ -13,6 +13,7 @@ import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.R;
 import com.example.taras.homeworklesson17.api.ApiConst;
 import com.example.taras.homeworklesson17.api.Data;
+import com.example.taras.homeworklesson17.api.EventHandler;
 import com.example.taras.homeworklesson17.api.models.Post;
 import com.example.taras.homeworklesson17.api.models.User;
 
@@ -21,12 +22,10 @@ import com.example.taras.homeworklesson17.api.models.User;
  */
 public class PostListFragment extends Fragment implements View.OnClickListener {
 
-    private MainActivity mainActivity;
     private User user;
     private LinearLayout linearLayout;
 
-    public PostListFragment(MainActivity mainActivity, User user) {
-        this.mainActivity = mainActivity;
+    public PostListFragment(User user) {
         this.user = user;
     }
 
@@ -42,7 +41,7 @@ public class PostListFragment extends Fragment implements View.OnClickListener {
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Posts");
+        tvTitle.setText(getString(R.string.posts));
 
         for (Post post : Data.postArrayList)
             if (post.getUserId() == user.getId()) {
@@ -53,7 +52,7 @@ public class PostListFragment extends Fragment implements View.OnClickListener {
     }
 
     private void addPost(Post post) {
-        LinearLayout llPost = (LinearLayout) View.inflate(mainActivity, R.layout.card_layout, null);
+        LinearLayout llPost = (LinearLayout) View.inflate(MainActivity.getInstance(), R.layout.card_layout, null);
         TextView tvTitle = (TextView) llPost.findViewById(R.id.tv_field_CL);
 
         llPost.setTag(post.getId());
@@ -65,11 +64,11 @@ public class PostListFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (!mainActivity.isFragmentOnTheTop(ApiConst.POST_LIST_FRAGMENT)) {
+        if (!EventHandler.isFragmentOnTheTop(ApiConst.POST_LIST_FRAGMENT)) {
             return;
         }
 
-        ShowPostFragment showPostFragment = new ShowPostFragment(mainActivity, (int) v.getTag());
-        mainActivity.commitFragment(showPostFragment, ApiConst.SHOW_POST_FRAGMENT);
+        ShowPostFragment showPostFragment = new ShowPostFragment((int) v.getTag());
+        EventHandler.commitFragment(showPostFragment, ApiConst.SHOW_POST_FRAGMENT);
     }
 }
