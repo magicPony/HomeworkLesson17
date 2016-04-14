@@ -36,7 +36,7 @@ public final class UserListFragment extends Fragment implements View.OnClickList
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Users");
+        tvTitle.setText(mainActivity.getString(R.string.users));
 
         for (User user : Data.userArrayList) {
             addUser(user);

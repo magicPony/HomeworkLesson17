@@ -42,7 +42,7 @@ public class CommentListFragment extends Fragment implements View.OnClickListene
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Comments");
+        tvTitle.setText(mainActivity.getString(R.string.comments));
 
         for (Comment comment : Data.commentArrayList)
             if (comment.getPostId() == post.getId()) {

@@ -3,4 +3,39 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wait">Wait...</string>
+    <string name="albums">Albums</string>
+    <string name="comments">Comments</string>
+    <string name="fields_should_be_filled">Fields should be filled</string>
+    <string name="photos">Photos</string>
+    <string name="posts">Posts</string>
+    <string name="users">Users</string>
+    <string name="loading_finished">Loading finished</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="username">Username</string>
+    <string name="create_new_user">Create new user</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="street">Street</string>
+    <string name="suite">Suite</string>
+    <string name="city">City</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="lat">Lat</string>
+    <string name="lng">Lng</string>
+    <string name="phone">Phone</string>
+    <string name="website">Website</string>
+    <string name="company_name">Company name</string>
+    <string name="company_catch_phrase">Company catch phrase</string>
+    <string name="company_bs">Company bs</string>
+    <string name="register">register</string>
+    <string name="comment">Comment</string>
+    <string name="post_id_">Post id :</string>
+    <string name="id_">Id :</string>
+    <string name="name_">Name :</string>
+    <string name="email_">Email :</string>
+    <string name="post">Post</string>
+    <string name="user_id_">User id :</string>
+    <string name="title_">Title :</string>
+    <string name="url_">Url :</string>
+    <string name="completed_">Completed :</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="User id : "
+                android:text="@string/user_id_"
                 android:background="@drawable/item_drawable"
                 android:padding="5dp"
                 android:layout_margin="5dp"
@@ -32,7 +33,7 @@
             <TextView
                 android:id="@+id/tv_user_id_TL"
                 android:padding="5dp"
-                android:text="user id"
+                tools:text="user id"
                 android:layout_margin="5dp"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="Id : "
+                android:text="@string/id_"
                 android:background="@drawable/item_drawable"
                 android:padding="5dp"
                 android:layout_margin="5dp"
@@ -58,7 +59,7 @@
             <TextView
                 android:id="@+id/tv_id_TL"
                 android:padding="5dp"
-                android:text="id"
+                tools:text="id"
                 android:layout_margin="5dp"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="Title : "
+                android:text="@string/title_"
                 android:background="@drawable/item_drawable"
                 android:padding="5dp"
                 android:layout_margin="5dp"
@@ -84,7 +85,7 @@
             <TextView
                 android:id="@+id/tv_title_TL"
                 android:padding="5dp"
-                android:text="title"
+                tools:text="title"
                 android:layout_margin="5dp"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
@@ -99,7 +100,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="Completed : "
+                android:text="@string/completed_"
                 android:background="@drawable/item_drawable"
                 android:padding="5dp"
                 android:layout_margin="5dp"
@@ -110,7 +111,7 @@
             <TextView
                 android:id="@+id/tv_completed_TL"
                 android:padding="5dp"
-                android:text="true/false"
+                tools:text="true/false"
                 android:layout_margin="5dp"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"

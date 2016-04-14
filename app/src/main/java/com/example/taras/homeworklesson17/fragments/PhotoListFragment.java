@@ -40,7 +40,7 @@ public class PhotoListFragment extends Fragment {
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Photos");
+        tvTitle.setText(mainActivity.getString(R.string.photos));
 
         for (Photo photo : Data.photoArrayList)
             if (photo.getAlbumId() == albumId) {

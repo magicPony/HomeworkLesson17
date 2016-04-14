@@ -88,7 +88,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
         }
 
         if (!isFieldsFilled) {
-            String message = "Fields should be filled";
+            String message = mainActivity.getString(R.string.fields_should_be_filled);
             mainActivity.showToast(message);
             return;
         }

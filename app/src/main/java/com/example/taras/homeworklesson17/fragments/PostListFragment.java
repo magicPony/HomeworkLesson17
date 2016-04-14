@@ -42,7 +42,7 @@ public class PostListFragment extends Fragment implements View.OnClickListener {
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Posts");
+        tvTitle.setText(getString(R.string.posts));
 
         for (Post post : Data.postArrayList)
             if (post.getUserId() == user.getId()) {

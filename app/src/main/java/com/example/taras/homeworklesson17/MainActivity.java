@@ -45,7 +45,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getUsers(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 UserListResponse userListResponse = (UserListResponse) object;
                 Data.userArrayList = userListResponse.getUsers();
 
@@ -83,7 +83,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getTodos(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 TodoListResponse todoListResponse = (TodoListResponse) object;
                 Data.todoArrayList = todoListResponse.getTodos();
 
@@ -104,7 +104,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getAlbums(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 AlbumListResponse albumListResponse = (AlbumListResponse) object;
                 Data.albumArrayList = albumListResponse.getAlbums();
 
@@ -125,7 +125,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getPosts(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 PostListResponse postListResponse = (PostListResponse) object;
                 Data.postArrayList = postListResponse.getPosts();
 
@@ -146,7 +146,7 @@ public final class MainActivity extends AppCompatActivity {
         ConnectCallback connectCallback = new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 CommentListResponse commentListResponse = (CommentListResponse) object;
                 Data.commentArrayList = commentListResponse.getComments();
 
@@ -169,7 +169,7 @@ public final class MainActivity extends AppCompatActivity {
         ConnectCallback connectCallback = new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
-                showToast("Loading finished");
+                showToast(getString(R.string.loading_finished));
                 PhotoListResponse photoListResponse = (PhotoListResponse) object;
                 Data.photoArrayList = photoListResponse.getPhotos();
 

@@ -42,7 +42,7 @@ public class AlbumListFragment extends Fragment implements View.OnClickListener 
         linearLayout = (LinearLayout) view.findViewById(R.id.ll_LL);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title_LL);
-        tvTitle.setText("Albums");
+        tvTitle.setText(mainActivity.getString(R.string.albums));
 
         for (Album album : Data.albumArrayList)
             if (album.getUserId() == user.getId()) {
