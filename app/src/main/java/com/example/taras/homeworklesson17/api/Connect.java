@@ -2,6 +2,7 @@ package com.example.taras.homeworklesson17.api;
 
 import android.util.Log;
 
+import com.example.taras.homeworklesson17.MainActivity;
 import com.example.taras.homeworklesson17.api.interfaces.ConnectCallback;
 import com.example.taras.homeworklesson17.api.interfaces.ModelResponse;
 import com.loopj.android.http.AsyncHttpClient;
@@ -27,6 +28,7 @@ public final class Connect {
     private static Connect _instance;
     private AsyncHttpClient client;
     private int mParser = PARSER_JSON;
+    private static MainActivity mMainActivity;
 
     public static Connect getInstance() {
         if (_instance == null) {
@@ -88,14 +90,16 @@ public final class Connect {
         }
     }
 
-
-
     public int getParser() {
         return mParser;
     }
 
-
     public void getRequest(String url,final ModelResponse modelResponse , final ConnectCallback callback) {
+        mMainActivity.showToast("Wait...");
         getRequestWithParam(url, null, modelResponse, callback);
+    }
+
+    public static void initMainActivity(MainActivity mainActivity) {
+        mMainActivity = mainActivity;
     }
 }

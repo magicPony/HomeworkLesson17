@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.taras.homeworklesson17.api.Api;
 import com.example.taras.homeworklesson17.api.ApiConst;
+import com.example.taras.homeworklesson17.api.Connect;
 import com.example.taras.homeworklesson17.api.Data;
 import com.example.taras.homeworklesson17.api.interfaces.ConnectCallback;
 import com.example.taras.homeworklesson17.api.models.Post;
@@ -30,10 +31,13 @@ import com.example.taras.homeworklesson17.fragments.UserListFragment;
 
 public final class MainActivity extends AppCompatActivity {
 
+    private Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Connect.initMainActivity(this);
         initUserList();
     }
 
@@ -41,6 +45,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getUsers(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 UserListResponse userListResponse = (UserListResponse) object;
                 Data.userArrayList = userListResponse.getUsers();
 
@@ -51,7 +56,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->initUserList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->initUserList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -78,6 +83,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getTodos(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 TodoListResponse todoListResponse = (TodoListResponse) object;
                 Data.todoArrayList = todoListResponse.getTodos();
 
@@ -88,7 +94,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->openTodoList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->openTodoList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -98,6 +104,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getAlbums(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 AlbumListResponse albumListResponse = (AlbumListResponse) object;
                 Data.albumArrayList = albumListResponse.getAlbums();
 
@@ -108,7 +115,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->openAlbumList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->openAlbumList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -118,6 +125,7 @@ public final class MainActivity extends AppCompatActivity {
         Api.getPosts(new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 PostListResponse postListResponse = (PostListResponse) object;
                 Data.postArrayList = postListResponse.getPosts();
 
@@ -128,7 +136,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->openPostList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->openPostList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -138,6 +146,7 @@ public final class MainActivity extends AppCompatActivity {
         ConnectCallback connectCallback = new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 CommentListResponse commentListResponse = (CommentListResponse) object;
                 Data.commentArrayList = commentListResponse.getComments();
 
@@ -148,7 +157,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->openCommentList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->openCommentList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         };
@@ -160,6 +169,7 @@ public final class MainActivity extends AppCompatActivity {
         ConnectCallback connectCallback = new ConnectCallback() {
             @Override
             public void onSuccess(Object object) {
+                showToast("Loading finished");
                 PhotoListResponse photoListResponse = (PhotoListResponse) object;
                 Data.photoArrayList = photoListResponse.getPhotos();
 
@@ -170,7 +180,7 @@ public final class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable throwable, String errorMessage) {
                 Toast
-                        .makeText(MainActivity.this, "MainActivity->openPhotoList failure", Toast.LENGTH_LONG)
+                        .makeText(MainActivity.this, "MainActivity->openPhotoList failure", Toast.LENGTH_SHORT)
                         .show();
             }
         };
@@ -192,8 +202,7 @@ public final class MainActivity extends AppCompatActivity {
     }
 
     public void showToast(String message) {
-        Toast
-                .makeText(this, message, Toast.LENGTH_LONG)
-                .show();
+        toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

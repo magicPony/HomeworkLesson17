@@ -14,6 +14,7 @@ import com.loopj.android.http.RequestParams;
  * Created by taras on 11.04.16.
  */
 public final class Api {
+
     public static void getPosts(ConnectCallback callback) {
         Connect.getInstance().getRequest(ApiConst.POSTS, new PostListResponse(), callback);
     }

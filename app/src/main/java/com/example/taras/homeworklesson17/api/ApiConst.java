@@ -47,4 +47,5 @@ public final class ApiConst {
     public static final String SHOW_COMMENT_FRAGMENT = "show comment";
     public static final String PHOTO_LIST_FRAGMENT = "photo list";
     public static final String CREATE_USER_FRAGMENT = "create user";
+    public static final String LOADING_FRAGMENT = "loading";
 }

@@ -17,12 +17,11 @@ import com.example.taras.homeworklesson17.api.models.User;
 public class ShowUserFragment extends Fragment implements View.OnClickListener {
 
     private MainActivity mainActivity;
-    private int userId;
     private User user;
 
     public ShowUserFragment(MainActivity mainActivity, int userId) {
         this.mainActivity = mainActivity;
-        this.userId = userId;
+        user = Data.findUserById(userId);
     }
 
     @Nullable
@@ -34,7 +33,6 @@ public class ShowUserFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        user = Data.findUserById(userId);
         TextView tvName, tvUsername, tvEmail, tvPhone, tvWebsite, tvStreet, tvSuite, tvCity, tvZipcode, tvLat, tvLng, tvCompanyName, tvCatchPhrase, tvBs;
 
         tvName = (TextView) view.findViewById(R.id.tv_name_FSU);
